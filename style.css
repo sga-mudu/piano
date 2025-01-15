@@ -16,3 +16,86 @@
     );
     --active-white-box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.2);
 }
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    background-color: var(--background);
+}
+
+#container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.piano{
+    background-color: var(--black);
+    padding: 35px 40px;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.piano header{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2{
+    font-size: 1.6rem;
+}
+
+.piano-keys{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.piano-keys li{
+    color: gray;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.piano-keys .white{
+    background: var(--white-linear-gradient);
+    width: 62px;
+    height: 205px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.piano-keys .black{
+    background: var(--black-linear-gradient);
+    width: 40px;
+    height: 128px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin: 0 -20px;
+    z-index: 2;
+}
+
+.piano-keys div{
+    font-size: 1.1rem;
+    text-align: center;
+    width: 100%;
+    color: crimson;
+    position: absolute;
+    bottom: 35px;
+}
+
+.piano-keys span{
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 7px;
+}
