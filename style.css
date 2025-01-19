@@ -119,3 +119,70 @@ header div span{
 .volume-slider input{
     accent-color: white;
 }
+
+
+/* Container for the toggle */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 80px;
+    height: 40px;
+  }
+  
+  /* The hidden checkbox */
+  .toggle-input {
+    display: none;
+  }
+  
+  /* The toggle label that acts as the visible button */
+  .toggle-label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #d9534f; /* Default red for OFF state */
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* The round switch inside the toggle */
+  .toggle-label::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+  }
+  
+  /* Text inside the toggle */
+  .toggle-label-text {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* When checkbox is checked (ON state) */
+  .toggle-input:checked + .toggle-label {
+    background-color: #5cb85c; /* Green for ON state */
+  }
+  
+  .toggle-input:checked + .toggle-label::before {
+    transform: translateX(40px); /* Move the switch to the right */
+  }
+  
+  .toggle-input:checked + .toggle-label .toggle-label-text {
+    content: 'OFF'; /* Update text to OFF */
+  }
+

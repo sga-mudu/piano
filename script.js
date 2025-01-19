@@ -6,6 +6,8 @@ const audioMap = {};
 //{q: q.mp3, w: w.mp3...}
 
 document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.querySelector("#toggle-switch");
+    const labelText = document.querySelector(".toggle-label-text");
     const pianoKeysContainer = document.querySelector(".piano-keys");
     createPianoKeys(pianoKeysContainer);
     preloadAudio();
@@ -14,7 +16,38 @@ document.addEventListener("DOMContentLoaded", () => {
     pianoKeysContainer.querySelectorAll(".key").forEach((key) => {
         key.addEventListener("click", () => playTuned(key.dataset.key));
     });
+
+    toggleButton.addEventListener("change", () => {
+        if (toggleButton.checked) {
+          // Toggle is ON
+          labelText.textContent = "ON";
+          showKeyCharacters(); // Show characters on keys
+        } else {
+          // Toggle is OFF
+          labelText.textContent = "OFF";
+          hideKeyCharacters(); // Hide characters on keys
+        }
+      });
+      
+      // Function to hide characters on keys
+      const hideKeyCharacters = () => {
+        const pianoKeys = document.querySelectorAll(".piano-keys .key div, .piano-keys .key span");
+        pianoKeys.forEach((character) => {
+          character.style.visibility = "hidden"; // Hide the characters
+        });
+      };
+      
+      // Function to show characters on keys
+      const showKeyCharacters = () => {
+        const pianoKeys = document.querySelectorAll(".piano-keys .key div, .piano-keys .key span");
+        pianoKeys.forEach((character) => {
+          character.style.visibility = "visible"; // Show the characters
+        });
+      };
+      
 });
+
+
 
 const createPianoKeys = (container) => {
     keys.forEach(({note, key, isBlack, mappedKey}) => {
